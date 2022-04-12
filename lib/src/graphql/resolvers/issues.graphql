@@ -1,0 +1,28 @@
+# import './fragments/actor_fragment.graphql'
+
+query getIssues($name: String!, $owner: String!, $last: Int, $states: [IssueState!]){
+ repository(name: $name, owner: $owner) {
+   issues(last: $last, states: $states) {
+     edges {
+       node {
+         author {
+           ...Actor
+         }
+         title
+         url
+         publishedAt
+       }
+     }
+   }
+ }
+}
+
+query FindIssueID {
+  repository(owner:"octocat", name:"Hello-World") {
+    issue(number:349) {
+      author {
+        ...Actor
+      }
+    }
+  }
+}

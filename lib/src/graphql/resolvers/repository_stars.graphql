@@ -1,0 +1,21 @@
+# import './fragments/repositories_fragment.graphql'
+# import './fragments/user_fragment.graphql'
+
+query getRepostioryStars($name: String!, $owner: String!){
+ repository(name: $name, owner: $owner) {
+   ...Repository
+   stargazerCount
+ }
+}
+
+query getRepositories($last: Int, $isFork: Boolean) {
+ viewer {
+   ...User
+   repositories(last: $last, isFork: $isFork) {
+     nodes {
+       ...Repository
+       name
+     }
+   }
+ }
+}

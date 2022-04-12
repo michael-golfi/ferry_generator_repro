@@ -1,0 +1,5 @@
+fragment Repository on Repository {
+ isArchived
+ isFork
+ isLocked
+}

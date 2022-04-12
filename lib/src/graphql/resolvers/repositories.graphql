@@ -1,0 +1,13 @@
+# import './fragments/repositories_fragment.graphql'
+# import './fragments/user_fragment.graphql'
+
+query Repositories {
+ viewer {
+   ...User
+   repositories {
+     nodes {
+       ...Repository
+     }
+   }
+ }
+}

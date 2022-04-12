@@ -1,0 +1,44 @@
+targets:
+  $default:
+    sources:
+      exclude:
+        - 'test/**'
+
+    builders:
+      ferry_generator|graphql_builder:
+        enabled: true
+        options:
+          schema: repro|lib/schema.graphql
+          type_overrides:
+            Date:
+              name: DateTime
+            Datetime:
+              name: DateTime
+            BigFloat:
+              name: double
+            UUID:
+              name: String
+            JSON:
+              name: Json
+              import: 'package:repro/src/graphql/serializers/json_serializer.dart'
+            Cursor:
+              name: String
+
+      ferry_generator|serializer_builder:
+        enabled: true
+        options:
+          schema: repro|lib/schema.graphql
+          type_overrides:
+            Date:
+              name: DateTime
+            Datetime:
+              name: DateTime
+            BigFloat:
+              name: double
+            UUID:
+              name: String
+            JSON:
+              name: Json
+              import: 'package:repro/src/graphql/serializers/json_serializer.dart'
+            Cursor:
+              name: String

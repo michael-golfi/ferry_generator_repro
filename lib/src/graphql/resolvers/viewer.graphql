@@ -1,0 +1,29 @@
+# import './fragments/user_fragment.graphql'
+
+query Viewer {
+  viewer {
+    ...User
+    anyPinnableItems
+  }
+}
+
+query Viewer1 {
+  viewer {
+    ...User
+    avatarUrl
+  }
+}
+
+query Viewer2 {
+  viewer {
+    ...User
+    viewerIsFollowing
+  }
+}
+
+query Viewer3 {
+  viewer {
+    ...User
+    isGitHubStar
+  }
+}
